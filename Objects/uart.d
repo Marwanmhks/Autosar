@@ -1,0 +1,14 @@
+.\objects\uart.o: uart.c
+.\objects\uart.o: tm4c123gh6pm.h
+.\objects\uart.o: uart.h
+.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_memmap.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/sysctl.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/gpio.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_ints.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/interrupt.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/uart.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/pin_map.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/rom.h
+.\objects\uart.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/rom_map.h
