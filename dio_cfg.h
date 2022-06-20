@@ -3,7 +3,8 @@
 
 #include "dio.h"
 
-
+#define SW1 40
+#define SW2 44
 
 void Init_SW(void);
 

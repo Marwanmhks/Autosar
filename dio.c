@@ -42,11 +42,10 @@ void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode){
 	PortId = Ports[PortNum];
 	PinId = Pins[Pin_num];
 	if(Mode == 'C'){
-		
+		// to be completed for can??
 	}
 }
 Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId){
-	
 	Dio_LevelType Level;
 	Dio_PortType PortId;
 	uint8_t PortNum;
@@ -61,7 +60,6 @@ Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId){
 		else{
 			Level = STD_HIGH;
 		}
-
 	return Level;
 }
 void Dio_WriteChannel(Dio_ChannelType ChannelId, Dio_LevelType Level){
@@ -79,38 +77,24 @@ void Dio_WriteChannel(Dio_ChannelType ChannelId, Dio_LevelType Level){
 	else if(Level == STD_LOW){
 		GPIOPinWrite(PortId, PinId, ~PinId);
 	}
-	
 }
 Dio_PortLevelType Dio_ReadPort(Dio_PortType PortId){
 	Dio_LevelType PinLevel;
 	Dio_PortLevelType PortLevel;
-	uint8_t PortNum;
-	for(uint8_t PortCount=0; PortCount< NumOfPins; PortCount++){
-		if(Ports[PortCount] == PortId){
-			PortNum = PortCount;
-			break;
-		}
-	}
-	Dio_ChannelType ChannelId, CheckId = PortNum * NumOfPins;
-	for(ChannelId = PortNum * NumOfPins; ChannelId<(CheckId+8); ChannelId++){
+	
+	Dio_ChannelType ChannelId, CheckId = PortId * NumOfPins;
+	for(ChannelId = PortId * NumOfPins; ChannelId<(CheckId+8); ChannelId++){
 			PinLevel = Dio_ReadChannel(ChannelId);		
 			if(PinLevel == STD_HIGH){
 				PortLevel |= ChannelId;
 			}
 	}
-
 	return PortLevel;
 }
 void Dio_WritePort(Dio_PortType PortId, Dio_PortLevelType Level){
-	uint8_t PortNum;
-	for(uint8_t PortCount=0; PortCount< NumOfPins; PortCount++){
-		if(Ports[PortCount] == PortId){
-			PortNum = PortCount;
-			break;
-		}
-	}
-	Dio_ChannelType ChannelId, CheckId = PortNum * NumOfPins;
-	for(ChannelId = PortNum * NumOfPins; ChannelId<(CheckId+8); ChannelId++){
+	Dio_ChannelType ChannelId, CheckId = PortId * NumOfPins;
+	
+	for(ChannelId = PortId * NumOfPins; ChannelId<(CheckId+8); ChannelId++){
 		Dio_WriteChannel(ChannelId, Level);
 	}
 }
@@ -123,6 +107,5 @@ Dio_PortLevelType Dio_ReadChannelGroup(const Dio_ChannelGroupType* ChannelGroupI
 }		
 void Dio_WriteChannelGroup(const Dio_ChannelGroupType* ChannelGroupIdPtr, Dio_PortLevelType Level){
 	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
-
 }
 	
