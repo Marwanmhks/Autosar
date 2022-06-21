@@ -185,7 +185,6 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
-            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -352,7 +351,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <ClangAsOpt>4</ClangAsOpt>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -424,16 +423,6 @@
               <FilePath>.\init.h</FilePath>
             </File>
             <File>
-              <FileName>ECU_1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ECU_1.h</FilePath>
-            </File>
-            <File>
-              <FileName>ECU_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ECU_1.c</FilePath>
-            </File>
-            <File>
               <FileName>can_cfg.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\can_cfg.h</FilePath>
@@ -442,6 +431,31 @@
               <FileName>can_cfg.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\can_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>Port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Port.c</FilePath>
+            </File>
+            <File>
+              <FileName>Port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Port.h</FilePath>
+            </File>
+            <File>
+              <FileName>Port_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Port_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>ECU_2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ECU_2.h</FilePath>
+            </File>
+            <File>
+              <FileName>ECU_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ECU_2.c</FilePath>
             </File>
           </Files>
         </Group>

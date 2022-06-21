@@ -12,7 +12,8 @@ typedef struct Dio_ChannelGroupType{
 typedef uint8_t Dio_LevelType;
 typedef unsigned int Dio_PortLevelType;
 
-typedef unsigned int Port_PinType;
+typedef uint8_t Port_PinType;
+
 typedef enum{
   PORT_PIN_IN,
   PORT_PIN_OUT
