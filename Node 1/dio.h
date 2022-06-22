@@ -12,6 +12,11 @@
 #include "driverlib/gpio.h"
 
 #define NumOfPins					8
+const Dio_PortType Ports[] = {GPIO_PORTA_BASE, GPIO_PORTB_BASE, GPIO_PORTC_BASE, GPIO_PORTD_BASE, GPIO_PORTE_BASE, GPIO_PORTF_BASE};
+const Dio_ChannelType Pins[] = {GPIO_PIN_0, GPIO_PIN_1, GPIO_PIN_2, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
+const Dio_LevelType STD_LOW = 0x00;
+const Dio_LevelType STD_HIGH = 0x01;
+
 
 
 void Port_Init(const Port_ConfigType* ConfigPtr);
