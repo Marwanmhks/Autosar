@@ -15,6 +15,15 @@ void Systick_Init(void){
     SysTickIntEnable();
     SysTickEnable();
 }
+
+void Init_SW(void) {
+	Port_ConfigType SW_config;
+	//SW_config.SYSCTL_PERIPH = SYSCTL_PERIPH_GPIOF;
+	SW_config.PinDirection = PORT_PIN_IN;
+	SW_config.Pin = SW1;
+	SW_config.Pin = SW2;
+	Port_Init(&SW_config);
+}
 void GPIO_Init(void){
 		Init_SW();
 }
@@ -32,7 +41,7 @@ uint32_t Read_SW(void){
 			return SW2;
 		}	
 }
-void State_Switch(void){
+void State_machine(void){
   switch(Read_SW()){
         case SW1:
                 ECU_2_Flag = 1;

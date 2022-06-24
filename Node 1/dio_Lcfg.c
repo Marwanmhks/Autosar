@@ -1,5 +1,6 @@
 #include "dio_cfg.h"
 
+<<<<<<< Updated upstream
 Port_ConfigType Dio_Config;
 
 void Init_SW(void) {
@@ -11,3 +12,6 @@ void Init_SW(void) {
 	Dio_Init(&Dio_Config);
 
 }
+=======
+Port_ConfigType Dio_Init;
+>>>>>>> Stashed changes
