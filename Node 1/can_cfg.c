@@ -1,5 +1,9 @@
 #include "can_cfg.h"
 
+
+//map ports to can peipherals
+
+
 //Needs to be changed to match port config layout (layered arch)
 
 volatile bool errFlag = 0; 

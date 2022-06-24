@@ -18,13 +18,15 @@ typedef enum{
   PORT_PIN_IN,
   PORT_PIN_OUT
 }Port_PinDirectionType;
-typedef unsigned int Port_PinModeType;
+typedef enum{
+	Port_PinMode_CAN,
+	Port_PinMode_DIO
+}Port_PinModeType;
 typedef struct Port_ConfigType{
 	Port_PinModeType PinMode;
-	Dio_ChannelType Channel;
 	Port_PinDirectionType PinDirection;
 	uint32_t PinStrength;
-	Port_PinType PinType;
+	Port_PinType Pin;
 }Port_ConfigType;
 
 #endif
