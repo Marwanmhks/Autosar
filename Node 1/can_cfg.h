@@ -1,6 +1,7 @@
 #ifndef CAN_CFG_H
 #define CAN_CFG_H
 
+#include "Port.h"
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
 #include "driverlib/pin_map.h"

@@ -1,13 +1,13 @@
 #include "dio_cfg.h"
 
-Port_ConfigType Dio_Init;
+Port_ConfigType Dio_Config;
 
 void Init_SW(void) {
-	Dio_Init.SYSCTL_PERIPH = SYSCTL_PERIPH_GPIOF;
-	Dio_Init.PinDirection = PORT_PIN_IN;
-	Dio_Init.Channel = SW1;
-	Port_Init(&Dio_Init);
-	Dio_Init.Channel = SW2;
-	Port_Init(&Dio_Init);
+	Dio_Config.PinMode = Port_PinMode_DIO;
+	Dio_Config.PinDirection = PORT_PIN_IN;
+	Dio_Config.Pin = SW1;
+	Dio_Init(&Dio_Config);
+	Dio_Config.Pin = SW2;
+	Dio_Init(&Dio_Config);
 
 }

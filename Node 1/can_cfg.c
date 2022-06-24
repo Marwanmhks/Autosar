@@ -25,17 +25,13 @@ void CANIntHandler(void) {
 }
 void CAN_Init(void){
 	// Set up CAN0
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB); // enable CAN0 GPIO peripheral
-	GPIOPinConfigure(GPIO_PB4_CAN0RX);
-	GPIOPinConfigure(GPIO_PB5_CAN0TX);
-	GPIOPinTypeCAN(GPIO_PORTB_BASE, GPIO_PIN_4 | GPIO_PIN_5);
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_CAN0);
-	CANInit(CAN0_BASE);
-	CANBitRateSet(CAN0_BASE, SysCtlClockGet(), 500000);
+	Port_ConfigType CAN_Config;
+	CAN_Config.PinMode = Port_PinMode_CAN;
+	CAN_Config.Pin = 9;	//Add any channel in the GPIO Port needed Eg: Port B --> Channels (8 - 15)
+	Port_Init(&CAN_Config);
 	CANIntRegister(CAN0_BASE, CANIntHandler);
 	CANIntEnable(CAN0_BASE, CAN_INT_MASTER | CAN_INT_ERROR | CAN_INT_STATUS);
 	IntEnable(INT_CAN0);
-	CANEnable(CAN0_BASE);
 }
 
 void CAN_Send(){

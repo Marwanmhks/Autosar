@@ -1,6 +1,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 #include <stdint.h>
+#include <stdbool.h>
 //DIO types
 typedef unsigned int Dio_ChannelType;
 typedef unsigned int Dio_PortType;
