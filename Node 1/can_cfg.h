@@ -16,8 +16,16 @@
 #include "driverlib/gpio.h"
 #include "driverlib/interrupt.h"
 
+#define CAN0RXID                0
+#define RXOBJECT                1
+#define CAN0TXID                2
+#define TXOBJECT                2
+
 void CANIntHandler(void);
 void CAN_Init(void);
-void CAN_Send();
+void CAN_Send(void);
+void CAN_recieve(void);
+void sendingDone(void);
+void Error_Handling (void);
 
 #endif
