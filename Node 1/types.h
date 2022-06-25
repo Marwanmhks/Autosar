@@ -1,3 +1,8 @@
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
 #ifndef TYPES_H
 #define TYPES_H
 #include <stdint.h>

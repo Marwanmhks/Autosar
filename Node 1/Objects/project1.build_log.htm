@@ -27,39 +27,33 @@ Project File Date:  06/25/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling can_cfg.c...
-compiling dio.c...
-dio.c(57): warning:  #188-D: enumerated type mixed with another type
-  		Dio_WriteChannel(ChannelId, Level);
-dio.c(68): warning:  #188-D: enumerated type mixed with another type
-  	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
-dio.c(70): warning:  #1-D: last line of file ends without a newline
-  	
-dio.c: 3 warnings, 0 errors
-compiling ECU_1.c...
-ECU_1.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
-  bool systick_elapsed();
-ECU_1.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
-  void systick_reset();
-ECU_1.c: 2 warnings, 0 errors
-compiling Port_Lcfg.c...
-compiling app.c...
-ECU_1.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
-  bool systick_elapsed();
-ECU_1.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
-  void systick_reset();
-app.c(32): warning:  #111-D: statement is unreachable
-  	return 0;
-app.c(33): warning:  #1-D: last line of file ends without a newline
-  }
-app.c: 4 warnings, 0 errors
 compiling Port.c...
+compiling Can.c...
+Can.c(76): warning:  #167-D: argument of type "volatile tCANMsgObject *" is incompatible with parameter of type "tCANMsgObject *"
+  	CANMessageSet(CAN0_BASE, 2, &TXmsg2, MSG_OBJ_TYPE_TX); 
+Can.c(83): warning:  #167-D: argument of type "volatile tCANMsgObject *" is incompatible with parameter of type "tCANMsgObject *"
+  	CANMessageSet(CAN0_BASE, NODE3TXOBJECT, &TXmsg3, MSG_OBJ_TYPE_TX); 
+Can.c(91): warning:  #513-D: a value of type "volatile unsigned char *" cannot be assigned to an entity of type "uint8_t *"
+  				RXmsg.pui8MsgData = RXmsg_Data ; 
+Can.c(93): warning:  #167-D: argument of type "volatile tCANMsgObject *" is incompatible with parameter of type "tCANMsgObject *"
+  				CANMessageGet(CAN0_BASE, NODE2TXID, &RXmsg, 0); 
+Can.c: 4 warnings, 0 errors
+compiling App.c...
 assembling startup_TM4C123.s...
 compiling system_TM4C123.c...
-compiling dio_Lcfg.c...
+compiling Dio.c...
+Dio.c(62): warning:  #188-D: enumerated type mixed with another type
+  		Dio_WriteChannel(ChannelId, Level);
+Dio.c(73): warning:  #188-D: enumerated type mixed with another type
+  	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
+Dio.c: 2 warnings, 0 errors
+compiling main.c...
+main.c(19): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=5184 RO-data=2196 RW-data=1644 ZI-data=652  
-".\Objects\project1.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=5288 RO-data=2196 RW-data=1644 ZI-data=668  
+".\Objects\project1.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -85,8 +79,8 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device\Source\ARM\startup_TM4C123.s
       Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
 Build Time Elapsed:  00:00:04
 </pre>

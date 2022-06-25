@@ -383,11 +383,6 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>tm4c123gh6pm.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\tm4c123gh6pm.h</FilePath>
-            </File>
-            <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\rvmdk\driverlib.lib</FilePath>
@@ -396,41 +391,6 @@
               <FileName>types.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\types.h</FilePath>
-            </File>
-            <File>
-              <FileName>dio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\dio.c</FilePath>
-            </File>
-            <File>
-              <FileName>dio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\dio.h</FilePath>
-            </File>
-            <File>
-              <FileName>dio_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\dio_cfg.h</FilePath>
-            </File>
-            <File>
-              <FileName>ECU_1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ECU_1.h</FilePath>
-            </File>
-            <File>
-              <FileName>ECU_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ECU_1.c</FilePath>
-            </File>
-            <File>
-              <FileName>can_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\can_cfg.h</FilePath>
-            </File>
-            <File>
-              <FileName>can_cfg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\can_cfg.c</FilePath>
             </File>
             <File>
               <FileName>Port.c</FileName>
@@ -448,19 +408,49 @@
               <FilePath>.\Port_Cfg.h</FilePath>
             </File>
             <File>
-              <FileName>app.c</FileName>
+              <FileName>App.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\app.c</FilePath>
+              <FilePath>.\App.c</FilePath>
             </File>
             <File>
-              <FileName>Port_Lcfg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Port_Lcfg.c</FilePath>
+              <FileName>App.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\App.h</FilePath>
             </File>
             <File>
-              <FileName>dio_Lcfg.c</FileName>
+              <FileName>Can.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\dio_Lcfg.c</FilePath>
+              <FilePath>.\Can.c</FilePath>
+            </File>
+            <File>
+              <FileName>Can.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Can.h</FilePath>
+            </File>
+            <File>
+              <FileName>Dio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Dio.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Dio.h</FilePath>
+            </File>
+            <File>
+              <FileName>Dio_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Dio_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>tm4c123gh6pm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\tm4c123gh6pm.h</FilePath>
             </File>
           </Files>
         </Group>

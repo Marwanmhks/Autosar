@@ -1,3 +1,8 @@
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
 #include "types.h"
 #include "tm4c123gh6pm.h"
 #include "inc/hw_memmap.h"

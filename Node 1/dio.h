@@ -1,7 +1,12 @@
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
 #ifndef DIO_H
 #define DIO_H
 
-#include "dio_Cfg.h"
+#include "Dio_Cfg.h"
 
 Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId);
 void Dio_WriteChannel(Dio_ChannelType ChannelId, Dio_LevelType Level);

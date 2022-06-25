@@ -1,14 +1,21 @@
-#include "can_cfg.h"
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
+#include "Can.h"
 
 //Needs to be changed to match port config layout (layered arch)
 
 volatile uint32_t error_type = 0;
 volatile bool errFlag=0; //error flag for any errors in the CAN bus
-tCANMsgObject TXmsg; //message object for the sent message
-tCANMsgObject RXmsg; //message object for the recieved message
+volatile tCANMsgObject TXmsg2; //message object for the sent message
+volatile tCANMsgObject TXmsg3; //message object for the sent message
+volatile tCANMsgObject RXmsg; //message object for the recieved message
 //message data of maximum size 8 bytes (64 bits) as per CAn protocol
-unsigned char TXmsg_Data[8]; 
-unsigned char RXmsg_Data[8];
+volatile unsigned char TXmsg2_Data[8]; 
+volatile unsigned char TXmsg3_Data[8]; 
+volatile unsigned char RXmsg_Data[8];
 volatile bool rxFlag=0;
 
 // CAN interrupt handler
@@ -21,9 +28,15 @@ void CANIntHandler(void) {
 		errFlag = 1;
 		error_type |= status ; 
 	}
-	else if(status == TXOBJECT) { 
+	else if(status == NODE2TXOBJECT) { 
 		// clear interrupt
-		CANIntClear(CAN0_BASE, TXOBJECT	);
+		CANIntClear(CAN0_BASE, NODE2TXOBJECT);
+		// clear any error flags	
+		errFlag = 0; 
+	}
+	else if (status == NODE3TXOBJECT)
+	{
+		CANIntClear(CAN0_BASE, NODE3TXOBJECT);
 		// clear any error flags	
 		errFlag = 0; 
 	}
@@ -44,19 +57,30 @@ void CAN_Init(void){
 	CANIntRegister(CAN0_BASE, CANIntHandler);
 	CANIntEnable(CAN0_BASE, CAN_INT_MASTER | CAN_INT_ERROR | CAN_INT_STATUS);
 	IntEnable(INT_CAN0);
+	TXmsg2.ui32MsgID = 0x2001;
+	TXmsg2.ui32MsgIDMask = 0;
+	TXmsg2.ui32Flags = MSG_OBJ_TX_INT_ENABLE;
+	TXmsg2.ui32MsgLen = sizeof(TXmsg2_Data);
 	
-	TXmsg.ui32MsgID = CAN0TXID;
-	TXmsg.ui32MsgIDMask = 0;
-	TXmsg.ui32Flags = MSG_OBJ_TX_INT_ENABLE;
-	TXmsg.ui32MsgLen = sizeof(TXmsg_Data);
+	TXmsg3.ui32MsgID = NODE3TXID;
+	TXmsg3.ui32MsgIDMask = 0;
+	TXmsg3.ui32Flags = MSG_OBJ_TX_INT_ENABLE;
+	TXmsg3.ui32MsgLen = sizeof(TXmsg3_Data);
 }
 
-void CAN_Send(unsigned char word[],uint8_t Id){
-	strcpy((char *)TXmsg_Data, (char*)word);
+void CAN_Send_2(unsigned char word[]){
+	strcpy((char *)TXmsg2_Data, (char*)word);
 	// Set up msg object
-	TXmsg.pui8MsgData = (uint8_t*)&TXmsg_Data;
+	TXmsg2.pui8MsgData = (uint8_t*)&TXmsg2_Data;
 	// send as msg object 1
-	CANMessageSet(CAN0_BASE, TXOBJECT, &TXmsg, MSG_OBJ_TYPE_TX); 
+	CANMessageSet(CAN0_BASE, 2, &TXmsg2, MSG_OBJ_TYPE_TX); 
+}
+void CAN_Send_3(unsigned char word[]){
+	strcpy((char *)TXmsg3_Data, (char*)word);
+	// Set up msg object
+	TXmsg3.pui8MsgData = (uint8_t*)&TXmsg3_Data;
+	// send as msg object 1
+	CANMessageSet(CAN0_BASE, NODE3TXOBJECT, &TXmsg3, MSG_OBJ_TYPE_TX); 
 }
 
 //if the can flag is raised receive the message
@@ -66,7 +90,7 @@ void CAN_recieve(void){
 				 // set pointer to rx buffer
 				RXmsg.pui8MsgData = RXmsg_Data ; 
 				// read CAN message object 1 from CAN peripheral
-				CANMessageGet(CAN0_BASE, NODE_2, &RXmsg, 0); 
+				CANMessageGet(CAN0_BASE, NODE2TXID, &RXmsg, 0); 
 				// clear rx flag
 				Error_Handling();	
 				rxFlag = 0; 

@@ -1,14 +1,20 @@
-#include "init.h"
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
+#include "App.h"
 
-
-//Main routine
-int main(void) {
-	initClock();
-	initGPIO();
+int main(){
 	CAN_Init();
-	for(;;){
-		vSwitchTask();
-		vLedTask();
+	GPIO_Init();
+	Systick_Init();
+	while(1)
+	{
+			if(systick_elapsed()){
+				State_Machine();
+				systick_reset(); 
+     }
 	}
-
+	return 0;
 }

@@ -1,6 +1,6 @@
-.\objects\dio.o: dio.c
-.\objects\dio.o: dio.h
-.\objects\dio.o: dio_Cfg.h
+.\objects\dio.o: Dio.c
+.\objects\dio.o: Dio.h
+.\objects\dio.o: Dio_Cfg.h
 .\objects\dio.o: types.h
 .\objects\dio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\dio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

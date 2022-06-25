@@ -1,3 +1,8 @@
+/******************************************************************************/
+/* Module Name: can.c        												  */
+/* Author: Osama Elhout and Mohamed Atef              */
+/* Purpose: CAN-BUS module													  */
+/******************************************************************************/
 #include "Port_cfg.h"
 
 void Port_SetPinDirection(Port_PinType Pin,Port_PinDirectionType Direction);
