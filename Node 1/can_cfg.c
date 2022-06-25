@@ -1,9 +1,5 @@
 #include "can_cfg.h"
 
-
-//map ports to can peipherals
-
-
 //Needs to be changed to match port config layout (layered arch)
 
 volatile uint32_t error_type = 0;
@@ -25,43 +21,53 @@ void CANIntHandler(void) {
 		errFlag = 1;
 		error_type |= status ; 
 	} 
-	// msg object 1
-	else if(status == RXOBJECT) { 
+	// msg object 2
+	else if(status == NODE_2) { 
 		// clear interrupt
-		CANIntClear(CAN0_BASE, RXOBJECT);
+		CANIntClear(CAN0_BASE, NODE_2);
 		// set rx flag
 		rxFlag = 1; 
 		// clear any error flags	
 		errFlag = 0; 
 	}
 
-	else if(status == TXOBJECT) { 
+	else if(status == NODE_1) { 
 		// clear interrupt
-		CANIntClear(CAN0_BASE, TXOBJECT);
+		CANIntClear(CAN0_BASE, NODE_1);
 		// clear any error flags	
 		errFlag = 0; 
 	}
 }
+void Init_CAN0(void) {
+	CAN;
+	Port_ConfigType CAN_config;
+	CAN_config.PinMode = Port_PinMode_CAN;
+	int len = (sizeof(CanChannelConfigData)/sizeof(Port_PinType));
+	for(int i=0; i< len; i++){
+		CAN_config.Pin = CanChannelConfigData[i];
+		Port_Init(&CAN_config);
+	}
+}
 void CAN_Init(void){
 	// Set up CAN0
-	Port_ConfigType CAN_Config;
-	CAN_Config.PinMode = Port_PinMode_CAN;
-	CAN_Config.Pin = 9;	//Add any channel in the GPIO Port needed Eg: Port B --> Channels (8 - 15)
-	Port_Init(&CAN_Config);
+	Init_CAN0();
 	CANIntRegister(CAN0_BASE, CANIntHandler);
 	CANIntEnable(CAN0_BASE, CAN_INT_MASTER | CAN_INT_ERROR | CAN_INT_STATUS);
 	IntEnable(INT_CAN0);
+	
+	TXmsg.ui32MsgID = CAN0TXID;
+	TXmsg.ui32MsgIDMask = 0;
+	TXmsg.ui32Flags = MSG_OBJ_TX_INT_ENABLE;
+	TXmsg.ui32MsgLen = sizeof(TXmsg_Data);
 }
 
-//encrypt the message, set the message object
-//to the encrypted data andn send iver the can bus
-void CAN_Send(void){
+void CAN_Send(char word[],uint8_t Id){
 	
 	// Set up msg object
-	TXmsg.pui8MsgData = (uint8_t*)&TXmsg_Data;
+	TXmsg.pui8MsgData = (uint8_t*)&word;
 
 	// send as msg object 1
-	CANMessageSet(CAN0_BASE, TXOBJECT, &TXmsg, MSG_OBJ_TYPE_TX); 
+	CANMessageSet(CAN0_BASE, Id, &TXmsg, MSG_OBJ_TYPE_TX); 
 }
 
 //if the can flag is raised receive the message
@@ -71,17 +77,13 @@ void CAN_recieve(void){
 				 // set pointer to rx buffer
 				RXmsg.pui8MsgData = RXmsg_Data ; 
 				// read CAN message object 1 from CAN peripheral
-				CANMessageGet(CAN0_BASE, RXOBJECT, &RXmsg, 0); 
+				CANMessageGet(CAN0_BASE, NODE_2, &RXmsg, 0); 
 				// clear rx flag
 				Error_Handling();	
 				rxFlag = 0; 
 				}
 }
 
-void sendingDone(void){
-	unsigned long status = CANStatusGet(CAN0_BASE, CAN_STS_CONTROL);
-	while(status != CAN_STS_TXOK);
-}
 // handles the errors than can occur
 // outputs a message to the user with the error type
 void Error_Handling (void){

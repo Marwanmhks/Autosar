@@ -1,28 +1,38 @@
 #include "ECU_1.h"
 
-volatile bool ECU_2_Flag = 0;
-volatile bool ECU_3_Flag = 0;
-volatile bool Red_Flag = 0;
-volatile bool switchFlag = 0;
+volatile bool systickFlag = 0;
 
 void SysTickIntHandler(void){
-
+	systickFlag=1;
+}
+bool systick_elapsed()
+{
+	return systickFlag;
+}
+void systick_reset()
+{
+	systickFlag = 0;
 }
 void Systick_Init(void){
 		IntMasterEnable();
-    SysTickPeriodSet(SysCtlClockGet());
+    SysTickPeriodSet(SysCtlClockGet()*ECU_period);
     SysTickIntRegister(SysTickIntHandler);
     SysTickIntEnable();
     SysTickEnable();
 }
 
 void Init_SW(void) {
+	Switches;
 	Port_ConfigType SW_config;
-	//SW_config.SYSCTL_PERIPH = SYSCTL_PERIPH_GPIOF;
+	SW_config.PinMode = Port_PinMode_DIO;
 	SW_config.PinDirection = PORT_PIN_IN;
-	SW_config.Pin = SW1;
-	SW_config.Pin = SW2;
-	Port_Init(&SW_config);
+	SW_config.PinType = GPIO_PIN_TYPE_STD_WPU;
+	SW_config.PinStrength = GPIO_STRENGTH_2MA;
+	int len = (sizeof(DioChannelConfigData)/sizeof(Dio_ChannelType));
+	for(int i=0; i< len; i++){
+		SW_config.Pin = DioChannelConfigData[i];
+		Port_Init(&SW_config);
+	}
 }
 void GPIO_Init(void){
 		Init_SW();
@@ -39,28 +49,29 @@ uint32_t Read_SW(void){
 				return (SW1+SW2);
 			}
 			return SW2;
-		}	
+		}
+		return 0;
 }
-void State_machine(void){
+void State_Machine(void){
   switch(Read_SW()){
         case SW1:
-                ECU_2_Flag = 1;
-                while(SW_Input() == SW1){}
-                break;    
+					CAN_Send("YES",NODE_2);
+					//CAN_Send("NO",NODE_3);
+					while(Read_SW() == SW1){}
+					break;    
         case SW2:
-                ECU_3_Flag = 1;
-                while(SW_Input() == SW2){}
-                break;
- 
+					CAN_Send("NO",NODE_2);
+					//CAN_Send("YES",NODE_3);
+					while(Read_SW() == SW2){}
+					break;
         case (SW1+SW2):
-                Red_Flag = 1;
-                while(SW_Input() == (SW1+SW2)){}
-                break;            
+					CAN_Send("RESET",NODE_2);
+					//CAN_Send("RESET",NODE_3);
+					while(Read_SW() == (SW1+SW2)){}
+					break; 
+				default:
+					CAN_Send("NO",NODE_2);
+					//CAN_Send("NO",NODE_3);
 	}
 }
-void vSwitchTask(void){
-		if(switchFlag == 1){
-			State_Switch();
-      switchFlag = 0; 
-     }
-}
+
