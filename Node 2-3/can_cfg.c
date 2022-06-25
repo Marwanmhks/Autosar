@@ -22,9 +22,9 @@ void CANIntHandler(void) {
 		error_type |= status ; 
 	} 
 	// msg object 2
-	else if(status == NODE_2) { 
+	else if(status == RXOBJECT) { 
 		// clear interrupt
-		CANIntClear(CAN0_BASE, NODE_2);
+		CANIntClear(CAN0_BASE, RXOBJECT);
 		// set rx flag
 		rxFlag = 1; 
 		// clear any error flags	
@@ -47,13 +47,14 @@ void CAN_Init(void){
 	CANIntRegister(CAN0_BASE, CANIntHandler);
 	CANIntEnable(CAN0_BASE, CAN_INT_MASTER | CAN_INT_ERROR | CAN_INT_STATUS);
 	IntEnable(INT_CAN0);
+	//setup message object 
 	RXmsg.ui32MsgID = CAN0RXID;
 	RXmsg.ui32MsgIDMask = 0;
 	RXmsg.ui32Flags = MSG_OBJ_RX_INT_ENABLE | MSG_OBJ_USE_ID_FILTER;
 	RXmsg.ui32MsgLen = 8; // allow up to 8 bytes
 	// Load msg into CAN peripheral message object 1 
 	//so it can trigger interrupts on any matched rx messages
-	CANMessageSet(CAN0_BASE, NODE_2, &RXmsg, MSG_OBJ_TYPE_RX);
+	CANMessageSet(CAN0_BASE, RXOBJECT, &RXmsg, MSG_OBJ_TYPE_RX);
 
 }
 
@@ -63,7 +64,7 @@ void CAN_Send(char word[],uint8_t Id){
 	TXmsg.pui8MsgData = (uint8_t*)&word;
 
 	// send as msg object 1
-	CANMessageSet(CAN0_BASE, Id, &TXmsg, MSG_OBJ_TYPE_TX); 
+	CANMessageSet(CAN0_BASE, TXOBJECT, &TXmsg, MSG_OBJ_TYPE_TX); 
 }
 
 //if the can flag is raised receive the message
@@ -73,7 +74,7 @@ uint8_t CAN_recieve(void){
 				 // set pointer to rx buffer
 				RXmsg.pui8MsgData = RXmsg_Data ; 
 				// read CAN message object 1 from CAN peripheral
-				CANMessageGet(CAN0_BASE, NODE_1, &RXmsg, 0); 
+				CANMessageGet(CAN0_BASE, RXOBJECT, &RXmsg, 0); 
 				// clear rx flag
 				Error_Handling();	
 				rxFlag = 0; 

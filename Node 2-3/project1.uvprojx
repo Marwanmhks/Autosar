@@ -418,16 +418,6 @@
               <FilePath>.\init.h</FilePath>
             </File>
             <File>
-              <FileName>ECU_1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ECU_1.h</FilePath>
-            </File>
-            <File>
-              <FileName>ECU_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ECU_1.c</FilePath>
-            </File>
-            <File>
               <FileName>can_cfg.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\can_cfg.h</FilePath>
@@ -466,6 +456,16 @@
               <FileName>dio_Lcfg.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\dio_Lcfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>ECU_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ECU_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>ECU_2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ECU_2.h</FilePath>
             </File>
           </Files>
         </Group>

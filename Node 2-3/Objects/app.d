@@ -1,5 +1,5 @@
 .\objects\app.o: app.c
-.\objects\app.o: ECU_1.h
+.\objects\app.o: ECU_2.h
 .\objects\app.o: dio.h
 .\objects\app.o: dio_Cfg.h
 .\objects\app.o: types.h

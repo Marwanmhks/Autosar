@@ -14,3 +14,4 @@
 .\objects\can_cfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_can.h
 .\objects\can_cfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_types.h
 .\objects\can_cfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/interrupt.h
+.\objects\can_cfg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

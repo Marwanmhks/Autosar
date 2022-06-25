@@ -35,41 +35,41 @@ dio.c(68): warning:  #188-D: enumerated type mixed with another type
 dio.c(70): warning:  #1-D: last line of file ends without a newline
   	
 dio.c: 3 warnings, 0 errors
+compiling Port.c...
 compiling can_cfg.c...
-can_cfg.c(80): warning:  #550-D: variable "test"  was set but never used
+can_cfg.c(81): warning:  #550-D: variable "test"  was set but never used
   				char test [8];
-can_cfg.c(95): warning:  #940-D: missing return statement at end of non-void function "CAN_recieve" 
+can_cfg.c(96): warning:  #940-D: missing return statement at end of non-void function "CAN_recieve" 
   }
 can_cfg.c: 2 warnings, 0 errors
-compiling ECU_1.c...
-ECU_1.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
-  bool systick_elapsed();
-ECU_1.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
-  void systick_reset();
-ECU_1.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
-  bool oneSec_elapsed();
-ECU_1.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
-  void oneSec_reset();
-ECU_1.c: 4 warnings, 0 errors
 compiling app.c...
-ECU_1.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
+ECU_2.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
   bool systick_elapsed();
-ECU_1.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
+ECU_2.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
   void systick_reset();
-ECU_1.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
+ECU_2.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
   bool oneSec_elapsed();
-ECU_1.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
+ECU_2.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
   void oneSec_reset();
-app.c(36): warning:  #111-D: statement is unreachable
+app.c(28): warning:  #111-D: statement is unreachable
   	return 0;
-app.c(37): warning:  #1-D: last line of file ends without a newline
+app.c(29): warning:  #1-D: last line of file ends without a newline
   }
 app.c: 6 warnings, 0 errors
 compiling Port_Lcfg.c...
-compiling Port.c...
+compiling dio_Lcfg.c...
 assembling startup_TM4C123.s...
 compiling system_TM4C123.c...
-compiling dio_Lcfg.c...
+compiling ECU_2.c...
+ECU_2.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
+  bool systick_elapsed();
+ECU_2.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
+  void systick_reset();
+ECU_2.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
+  bool oneSec_elapsed();
+ECU_2.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
+  void oneSec_reset();
+ECU_2.c: 4 warnings, 0 errors
 linking...
 Program Size: Code=5828 RO-data=2212 RW-data=1644 ZI-data=652  
 ".\Objects\project1.axf" - 0 Error(s), 15 Warning(s).
@@ -98,10 +98,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.1
-      Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
-Build Time Elapsed:  00:00:06
+      Include file:  Device\Include\TM4C123\TM4C123.h
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

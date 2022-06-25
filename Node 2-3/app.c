@@ -1,4 +1,4 @@
-#include "ECU_1.h"
+#include "ECU_2.h"
 
 int main(){
 	CAN_Init();
@@ -6,14 +6,6 @@ int main(){
 	Systick_Init();
 	while(1)
 	{
-		/*
-		can messages: pressed, reset, not pressed
-		read switch
-		if sw1flag: sw1task
-		if sw2flag sw2task
-		if sw1andsw2 bothtask
-		if systickflag (500 ms): can_send
-		*/
 			if(systick_elapsed()){
 				State_Machine();
 				systick_reset(); 

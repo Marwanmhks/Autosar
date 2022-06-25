@@ -19,4 +19,5 @@
 .\objects\app.o: Port_cfg.h
 .\objects\app.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_types.h
 .\objects\app.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/interrupt.h
+.\objects\app.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\app.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/systick.h

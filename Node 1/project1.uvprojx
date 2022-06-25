@@ -413,11 +413,6 @@
               <FilePath>.\dio_cfg.h</FilePath>
             </File>
             <File>
-              <FileName>init.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\init.h</FilePath>
-            </File>
-            <File>
               <FileName>ECU_1.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\ECU_1.h</FilePath>

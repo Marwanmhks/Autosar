@@ -16,8 +16,9 @@
 
 //the ids for the sending and receiving message objects
 #define CAN0RXID                0
-
-
+#define RXOBJECT                1
+#define CAN0TXID                2
+#define TXOBJECT                2
 
 #define NODE_1	                1
 #define NODE_2               		2

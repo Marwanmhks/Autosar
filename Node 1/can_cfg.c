@@ -20,20 +20,10 @@ void CANIntHandler(void) {
 		status = CANStatusGet(CAN0_BASE, CAN_STS_CONTROL);
 		errFlag = 1;
 		error_type |= status ; 
-	} 
-	// msg object 2
-	else if(status == NODE_2) { 
-		// clear interrupt
-		CANIntClear(CAN0_BASE, NODE_2);
-		// set rx flag
-		rxFlag = 1; 
-		// clear any error flags	
-		errFlag = 0; 
 	}
-
-	else if(status == NODE_1) { 
+	else if(status == TXOBJECT) { 
 		// clear interrupt
-		CANIntClear(CAN0_BASE, NODE_1);
+		CANIntClear(CAN0_BASE, TXOBJECT	);
 		// clear any error flags	
 		errFlag = 0; 
 	}
@@ -61,13 +51,12 @@ void CAN_Init(void){
 	TXmsg.ui32MsgLen = sizeof(TXmsg_Data);
 }
 
-void CAN_Send(char word[],uint8_t Id){
-	
+void CAN_Send(unsigned char word[],uint8_t Id){
+	strcpy((char *)TXmsg_Data, (char*)word);
 	// Set up msg object
-	TXmsg.pui8MsgData = (uint8_t*)&word;
-
+	TXmsg.pui8MsgData = (uint8_t*)&TXmsg_Data;
 	// send as msg object 1
-	CANMessageSet(CAN0_BASE, Id, &TXmsg, MSG_OBJ_TYPE_TX); 
+	CANMessageSet(CAN0_BASE, TXOBJECT, &TXmsg, MSG_OBJ_TYPE_TX); 
 }
 
 //if the can flag is raised receive the message
