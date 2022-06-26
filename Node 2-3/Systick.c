@@ -49,7 +49,7 @@ void systick_reset(){
 }
 
 void Systick_Init(TimeType ECU_period){
-		IntMasterEnable();
+	IntMasterEnable();
     SysTickPeriodSet(SysCtlClockGet()*ECU_period);
     SysTickIntRegister(SysTickIntHandler);
     SysTickIntEnable();

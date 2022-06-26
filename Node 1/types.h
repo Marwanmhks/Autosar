@@ -7,6 +7,12 @@
 #define TYPES_H
 #include <stdint.h>
 #include <stdbool.h>
+
+//App types
+typedef bool FlagType;
+typedef double TimeType;
+typedef unsigned char CanMsgType;
+
 //DIO types
 typedef unsigned int Dio_ChannelType;
 typedef unsigned int Dio_PortType;

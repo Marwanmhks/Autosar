@@ -19,7 +19,7 @@ void Loop_Func(void){
 			}
 }
 void State_Machine(void){
-  switch(CAN_recieve()){
+  switch(Read_State()){
         case INCREMENT:
 					currentState++;
 					if(currentState == 3)
@@ -33,7 +33,3 @@ void State_Machine(void){
 					break; 
 	}
 }
-
-
-
-

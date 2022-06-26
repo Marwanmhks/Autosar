@@ -29,43 +29,19 @@ Project File Date:  06/26/2022
 Rebuild target 'Target 1'
 assembling startup_TM4C123.s...
 compiling system_TM4C123.c...
-compiling Hal.c...
-Port.h(18): warning:  #1-D: last line of file ends without a newline
-  #endif
-Hal.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-Hal.c: 2 warnings, 0 errors
-compiling main.c...
-Port.h(18): warning:  #1-D: last line of file ends without a newline
-  #endif
-Hal.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c(19): warning:  #111-D: statement is unreachable
-  	return 0;
-main.c: 3 warnings, 0 errors
-compiling Port.c...
-Port.h(18): warning:  #1-D: last line of file ends without a newline
-  #endif
-Port.c: 1 warning, 0 errors
 compiling Dio.c...
-Dio.c(62): warning:  #188-D: enumerated type mixed with another type
-  		Dio_WriteChannel(ChannelId, Level);
-Dio.c(73): warning:  #188-D: enumerated type mixed with another type
-  	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
-Dio.c: 2 warnings, 0 errors
-compiling App.c...
-Port.h(18): warning:  #1-D: last line of file ends without a newline
-  #endif
-Hal.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-App.c: 2 warnings, 0 errors
+compiling Hal.c...
 compiling Can.c...
-Port.h(18): warning:  #1-D: last line of file ends without a newline
-  #endif
-Can.c: 1 warning, 0 errors
+compiling Systick.c...
+compiling Port.c...
+compiling App.c...
+compiling main.c...
+main.c(16): warning:  #111-D: statement is unreachable
+  	return 0;
+main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=5396 RO-data=2196 RW-data=1644 ZI-data=668  
-".\Objects\project1.axf" - 0 Error(s), 11 Warning(s).
+Program Size: Code=5404 RO-data=2196 RW-data=1644 ZI-data=668  
+".\Objects\project1.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -92,8 +68,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.1
       Include file:  Device\Include\TM4C123\TM4C123.h
-      Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
+      Source file:   Device\Source\ARM\startup_TM4C123.s
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

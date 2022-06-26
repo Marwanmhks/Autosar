@@ -18,3 +18,6 @@ void State_Change(uint8_t State){
 	Dio_WriteChannel(color_States[2],STD_LOW);
 	Dio_WriteChannel(color_States[State],STD_HIGH);
 }
+uint8_t Read_State(void){
+	return CAN_recieve();
+}

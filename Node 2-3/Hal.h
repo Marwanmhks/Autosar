@@ -7,7 +7,7 @@
 #include "Systick.h"
 
 void Init_LEDs(void);
-
+uint8_t Read_State(void);
 void State_Change(uint8_t State);
 
 #endif

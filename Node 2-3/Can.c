@@ -85,10 +85,11 @@ uint8_t CAN_recieve(void){
 				else if(strcmp((char*)&RXmsg_Data,"NO") == 0){
 					return NOTHING;
 				}
-				else if(strcmp((char*)&RXmsg_Data,"R") == 0){
+				else if(strcmp((char*)&RXmsg_Data,"RESET") == 0){
 					return RESET;
 				}
 		}
+		return 0;
 }
 
 // handles the errors than can occur

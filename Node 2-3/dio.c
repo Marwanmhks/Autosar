@@ -54,7 +54,7 @@ void Dio_WritePort(Dio_PortType PortId, Dio_PortLevelType Level){
 	Dio_ChannelType ChannelId, CheckId = PortId * NumOfPins;
 	
 	for(ChannelId = PortId * NumOfPins; ChannelId<(CheckId+8); ChannelId++){
-		Dio_WriteChannel(ChannelId, Level);
+		Dio_WriteChannel(ChannelId, (Dio_LevelType)Level);
 	}
 }
 Dio_PortLevelType Dio_ReadChannelGroup(const Dio_ChannelGroupType* ChannelGroupIdPtr){
@@ -65,6 +65,6 @@ Dio_PortLevelType Dio_ReadChannelGroup(const Dio_ChannelGroupType* ChannelGroupI
 	return Level;
 }		
 void Dio_WriteChannelGroup(const Dio_ChannelGroupType* ChannelGroupIdPtr, Dio_PortLevelType Level){
-	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
+	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,(Dio_LevelType)Level);
 }
 	

@@ -3,17 +3,20 @@
 /* Author: Osama Elhout and Mohamed Atef              */
 /* Purpose: CAN-BUS module													  */
 /******************************************************************************/
-#ifndef APP_H
-#define APP_H
+#ifndef SYSTICK_H
+#define SYSTICK_H
 
-#include "Hal.h"
+#include "types.h"
+#include "tm4c123gh6pm.h"
+#include "inc/hw_memmap.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/pin_map.h"
 #include "driverlib/systick.h"
 #include "driverlib/interrupt.h"
 
-#define ECU_period 0.5 //periodicity in s
-
-void Init(void);
-uint32_t Read_SW(void);
-void State_Machine(void);
+void SysTickIntHandler(void);
+void Systick_Init(TimeType ECU_period);
+FlagType systick_elapsed(void);
+void systick_reset(void);
 
 #endif

@@ -5,29 +5,11 @@
 /******************************************************************************/
 #include "App.h"
 
-volatile bool systickFlag = 0;
 
-void SysTickIntHandler(void){
-	systickFlag=1;
-}
-bool systick_elapsed(void)
-{
-	return systickFlag;
-}
-void systick_reset(void)
-{
-	systickFlag = 0;
-}
-void Systick_Init(void){
-		IntMasterEnable();
-    SysTickPeriodSet(SysCtlClockGet()* ECU_period);
-    SysTickIntRegister(SysTickIntHandler);
-    SysTickIntEnable();
-    SysTickEnable();
-}
-
-void GPIO_Init(void){
+void Init(void){
 		Init_SW();
+		CAN_Init();
+		Systick_Init(ECU_period);
 }
 
 void State_Machine(void){
