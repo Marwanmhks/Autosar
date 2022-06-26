@@ -5,9 +5,9 @@
 .\objects\port_lcfg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\port_lcfg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\port_lcfg.o: tm4c123gh6pm.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_memmap.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/sysctl.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/pin_map.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/gpio.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/can.h
-.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_can.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_memmap.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/sysctl.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/pin_map.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/gpio.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/can.h
+.\objects\port_lcfg.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_can.h

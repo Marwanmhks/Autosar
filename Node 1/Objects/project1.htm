@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\project1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\project1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 26 00:51:58 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 26 03:31:57 2022
 <BR><P>
 <H3>Maximum Stack Usage =        160 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -404,8 +404,9 @@ Global Symbols
 <P><STRONG><a name="[8f]"></a>SysCtlDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sysctl.o(.emb_text))
 <BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;State_Machine
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
 </UL>
 
 <P><STRONG><a name="[e9]"></a>CPUcpsid</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, cpu.o(.emb_text), UNUSED)
@@ -1319,7 +1320,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[7a]"></a>CANIntHandler</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, can.o(i.CANIntHandler))
+<P><STRONG><a name="[7a]"></a>CANIntHandler</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, can.o(i.CANIntHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CANIntHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CANStatusGet
@@ -1363,7 +1364,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9b]"></a>CAN_Send_2</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, can.o(i.CAN_Send_2))
+<P><STRONG><a name="[9b]"></a>CAN_Send_2</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, can.o(i.CAN_Send_2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = CAN_Send_2 &rArr; CANMessageSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CANMessageSet
@@ -1372,7 +1373,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;State_Machine
 </UL>
 
-<P><STRONG><a name="[9e]"></a>CAN_Send_3</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, can.o(i.CAN_Send_3))
+<P><STRONG><a name="[9e]"></a>CAN_Send_3</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, can.o(i.CAN_Send_3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = CAN_Send_3 &rArr; CANMessageSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CANMessageSet
@@ -1530,10 +1531,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;State_Machine
 </UL>
 
-<P><STRONG><a name="[b6]"></a>State_Machine</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, app.o(i.State_Machine))
+<P><STRONG><a name="[b6]"></a>State_Machine</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, app.o(i.State_Machine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = State_Machine &rArr; CAN_Send_3 &rArr; CANMessageSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Send_3
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Send_3
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Send_2
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_SW
 </UL>

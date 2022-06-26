@@ -20,7 +20,7 @@ void systick_reset(void)
 }
 void Systick_Init(void){
 		IntMasterEnable();
-    SysTickPeriodSet(SysCtlClockGet()*ECU_period);
+    SysTickPeriodSet(SysCtlClockGet()* ECU_period);
     SysTickIntRegister(SysTickIntHandler);
     SysTickIntEnable();
     SysTickEnable();
@@ -59,24 +59,28 @@ uint32_t Read_SW(void){
 }
 void State_Machine(void){
   switch(Read_SW()){
-        case SW2:
+        case SW1:
 					CAN_Send_3((unsigned char *)"NO");
 					CAN_Send_2((unsigned char *)"YES");
 					while(Read_SW() == SW1){}
 					break;    
-        case SW1:
+        case SW2:
 					CAN_Send_2((unsigned char *)"NO");
 					CAN_Send_3((unsigned char *)"YES");
 					while(Read_SW() == SW2){}
 					break;
-        case (SW1+SW2):
+        case (SW1+SW2):	
+					while(Read_SW() == (SW1+SW2)){
+					CAN_Send_3((unsigned char *)"R");
+					SysCtlDelay(16000000 / 450);
 					CAN_Send_2((unsigned char *)"RESET");
-					CAN_Send_3((unsigned char *)"RESET");
-					while(Read_SW() == (SW1+SW2)){}
+					}
 					break; 
 				default:
+					
 					CAN_Send_2((unsigned char *)"NO");
 					CAN_Send_3((unsigned char *)"NO");
+					
 	}
 }
 

@@ -16,7 +16,7 @@
 #define Dio_F1 DioConf_DioChannel_F1
 #define DioConf_DioChannel_F2 42
 #define Dio_F2 DioConf_DioChannel_F2
-#define DioConf_DioChannel_F3 43
+#define DioConf_DioChannel_F3 11
 #define Dio_F3 DioConf_DioChannel_F3
 #define RED  Dio_F1//pin id correspoding to port f pin 0
 #define BLUE Dio_F2 //pin id correspoding to port f pin 3
