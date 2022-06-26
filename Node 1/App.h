@@ -1,7 +1,7 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
-/* Author: Osama Elhout and Mohamed Atef              */
-/* Purpose: CAN-BUS module													  */
+/* Module Name: Application        												  */
+/* Author: Youssef Ragaa              */
+/* Purpose: 													  */
 /******************************************************************************/
 #ifndef APP_H
 #define APP_H

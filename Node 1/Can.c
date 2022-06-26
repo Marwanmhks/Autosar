@@ -1,24 +1,24 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
-/* Author: Osama Elhout and Mohamed Atef              */
-/* Purpose: CAN-BUS module													  */
+/* Module Name: CAN       												  */
+/* Author: Mahmoud Emad              */
+/* Purpose: define transmission and reception services via the CAN bus													  */
 /******************************************************************************/
 #include "Can.h"
 
 //Needs to be changed to match port config layout (layered arch)
 
 volatile uint32_t error_type = 0;
-volatile bool g_bMsgObj2Sent = 0;
-volatile bool g_bMsgObj3Sent = 0;
-volatile bool errFlag=0; //error flag for any errors in the CAN bus
+volatile FlagType g_bMsgObj2Sent = 0;
+volatile FlagType g_bMsgObj3Sent = 0;
+volatile FlagType errFlag=0; //error flag for any errors in the CAN bus
  tCANMsgObject TXmsg2; //message object for the sent message
  tCANMsgObject TXmsg3; //message object for the sent message
  tCANMsgObject RXmsg; //message object for the recieved message
 //message data of maximum size 8 bytes (64 bits) as per CAn protocol
- unsigned char TXmsg2_Data[8]; 
- unsigned char TXmsg3_Data[8]; 
- unsigned char RXmsg_Data[8];
-volatile bool rxFlag=0;
+CanMsgType TXmsg2_Data[8]; 
+CanMsgType TXmsg3_Data[8]; 
+CanMsgType RXmsg_Data[8];
+volatile FlagType rxFlag=0;
 
 // CAN interrupt handler
 void CANIntHandler(void) {

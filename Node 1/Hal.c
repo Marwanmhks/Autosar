@@ -13,6 +13,7 @@ void Init_SW(void) {
 		Port_Init(&SW_config);
 	}
 }
+
 uint32_t Read_SW(void){
 		if(Dio_ReadChannel(SW1) == STD_LOW){
 			if(Dio_ReadChannel(SW2) == STD_LOW){
@@ -28,6 +29,7 @@ uint32_t Read_SW(void){
 		}
 		return 0;
 }
+
 void Send_Command(uint8_t Button){
 	if(Button == SW1){
 			CAN_Send_3((unsigned char *)"NO");

@@ -1,7 +1,7 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
-/* Author: Osama Elhout and Mohamed Atef              */
-/* Purpose: CAN-BUS module													  */
+/* Module Name: CAN       												  */
+/* Author: Mahmoud Emad              */
+/* Purpose: define transmission and reception services via the CAN bus													  */
 /******************************************************************************/
 #ifndef CAN_H
 #define CAN_H

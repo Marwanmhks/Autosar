@@ -1,7 +1,7 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
-/* Author: Osama Elhout and Mohamed Atef              */
-/* Purpose: CAN-BUS module													  */
+/* Module Name: DIO        												  */
+/* Author: Marwan Hesham              */
+/* Purpose: DIO configuration for the differen pins used by the Tiva													  */
 /******************************************************************************/
 #ifndef DIO_CFG_H
 #define DIO_CFG_H
