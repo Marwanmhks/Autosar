@@ -5,6 +5,7 @@
 
 //App types
 typedef bool FlagType;
+typedef double TimeType;
 typedef unsigned char CanMsgType;
 
 //DIO types

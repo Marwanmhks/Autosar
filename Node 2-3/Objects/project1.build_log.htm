@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.36.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: mahmoud emad, none, LIC=----
+License Information: Marwan Seliem, Ain Shams University, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.36.0.0
@@ -21,54 +21,13 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-D:\Mahmoud Emad\Autosar\Node 2-3\project1.uvprojx
-Project File Date:  06/25/2022
+C:\Users\Marwan\Documents\GitHub\Autosar DIO\Autosar\Node 2-3\project1.uvprojx
+Project File Date:  06/26/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-assembling startup_TM4C123.s...
-compiling Port.c...
-compiling main.c...
-App.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
-  bool systick_elapsed();
-App.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
-  void systick_reset();
-App.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
-  bool oneSec_elapsed();
-App.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
-  void oneSec_reset();
-main.c(18): warning:  #111-D: statement is unreachable
-  	return 0;
-main.c(19): warning:  #1-D: last line of file ends without a newline
-  }
-main.c: 6 warnings, 0 errors
-compiling App.c...
-App.h(17): warning:  #1295-D: Deprecated declaration systick_elapsed - give arg types
-  bool systick_elapsed();
-App.h(18): warning:  #1295-D: Deprecated declaration systick_reset - give arg types
-  void systick_reset();
-App.h(19): warning:  #1295-D: Deprecated declaration oneSec_elapsed - give arg types
-  bool oneSec_elapsed();
-App.h(20): warning:  #1295-D: Deprecated declaration oneSec_reset - give arg types
-  void oneSec_reset();
-App.c: 4 warnings, 0 errors
-compiling Can.c...
-Can.c(92): warning:  #940-D: missing return statement at end of non-void function "CAN_recieve" 
-  }
-Can.c: 1 warning, 0 errors
-compiling Dio.c...
-Dio.c(57): warning:  #188-D: enumerated type mixed with another type
-  		Dio_WriteChannel(ChannelId, Level);
-Dio.c(68): warning:  #188-D: enumerated type mixed with another type
-  	Dio_WriteChannel(((ChannelGroupIdPtr->port) &(ChannelGroupIdPtr->mask))>>ChannelGroupIdPtr->offset,Level);
-Dio.c(70): warning:  #1-D: last line of file ends without a newline
-  	
-Dio.c: 3 warnings, 0 errors
-compiling system_TM4C123.c...
-linking...
-Program Size: Code=5752 RO-data=2212 RW-data=1644 ZI-data=652  
-".\Objects\project1.axf" - 0 Error(s), 14 Warning(s).
+Build target 'Target 1'
+".\Objects\project1.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -86,8 +45,8 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
-  C:\Users\ASUS\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Users\ASUS\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+  C:\Users\Marwan\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\Marwan\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
 
 <h2>Collection of Component Files used:</h2>
 
@@ -95,9 +54,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.1
       Source file:   Device\Source\system_TM4C123.c
-      Source file:   Device\Source\ARM\startup_TM4C123.s
       Include file:  Device\Include\TM4C123\TM4C123.h
-Build Time Elapsed:  00:00:06
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

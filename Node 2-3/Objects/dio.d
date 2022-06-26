@@ -5,8 +5,8 @@
 .\objects\dio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\dio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\dio.o: tm4c123gh6pm.h
-.\objects\dio.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_memmap.h
-.\objects\dio.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/can.h
-.\objects\dio.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/sysctl.h
-.\objects\dio.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/pin_map.h
-.\objects\dio.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/gpio.h
+.\objects\dio.o: C:\ti\TivaWare_C_Series-2.2.0.295\inc/hw_memmap.h
+.\objects\dio.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/can.h
+.\objects\dio.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/sysctl.h
+.\objects\dio.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/pin_map.h
+.\objects\dio.o: C:\ti\TivaWare_C_Series-2.2.0.295\driverlib/gpio.h
