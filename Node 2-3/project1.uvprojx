@@ -339,7 +339,7 @@
               <MiscControls>--c99</MiscControls>
               <Define>rvmdk PART_TM4C123GH6PM TARGET_IS_BLIZZARD_RB1</Define>
               <Undefine></Undefine>
-              <IncludePath>C:\ti\TivaWare_C_Series-2.1.4.178</IncludePath>
+              <IncludePath>C:\ti\TivaWare_C_Series-2.2.0.295</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,11 +409,6 @@
               <FilePath>.\Port_Cfg.h</FilePath>
             </File>
             <File>
-              <FileName>driverlib.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\rvmdk\driverlib.lib</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -452,6 +447,31 @@
               <FileName>Dio_Cfg.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Dio_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>driverlib.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\rvmdk\driverlib.lib</FilePath>
+            </File>
+            <File>
+              <FileName>Hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>Hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>Systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Systick.h</FilePath>
+            </File>
+            <File>
+              <FileName>Systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Systick.c</FilePath>
             </File>
           </Files>
         </Group>
