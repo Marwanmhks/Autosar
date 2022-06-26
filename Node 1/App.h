@@ -6,9 +6,7 @@
 #ifndef APP_H
 #define APP_H
 
-#include "Dio.h"
-#include "Port.h"
-#include "Can.h"
+#include "Hal.h"
 #include "driverlib/systick.h"
 #include "driverlib/interrupt.h"
 
