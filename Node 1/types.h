@@ -1,7 +1,7 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
-/* Author: Osama Elhout and Mohamed Atef              */
-/* Purpose: CAN-BUS module													  */
+/* Module Name: TYPES        												  */
+/* Author: Marwan Hesham              */
+/* Purpose: define standard types for usage in DIO and PORT drivers as well as the application layer													  */
 /******************************************************************************/
 #ifndef TYPES_H
 #define TYPES_H
