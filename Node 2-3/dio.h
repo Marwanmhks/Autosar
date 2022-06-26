@@ -1,3 +1,9 @@
+/******************************************************************************/
+/* Module Name: DIO        												  */
+/* Author: Marwan Hesham              */
+/* Purpose: Define the types needed to abstractt the Tiva hardware pins as well as
+						necessary functions to interact with these pins i.e. read and write*/
+/******************************************************************************/
 #ifndef DIO_H
 #define DIO_H
 

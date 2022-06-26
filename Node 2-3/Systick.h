@@ -1,3 +1,9 @@
+/******************************************************************************/
+/* Module Name: Systick       												  */
+/* Author: Marwan Hesham              */
+/* Purpose: define APIs to set the Tiva systick timer 													  */
+
+/******************************************************************************/
 #ifndef SYSTICK_H
 #define SYSTICK_H
 

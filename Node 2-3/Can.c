@@ -1,17 +1,29 @@
-#include "Can.h"
+/******************************************************************************/
+/* Module Name: CAN       												  */
+/* Author: Mahmoud Emad              */
+/* Purpose: CAN interface functions for reading and writing messsages 													  */
 
-//Needs to be changed to match port config layout (layered arch)
+/******************************************************************************/
+#include "Can.h"
 
 volatile uint32_t error_type = 0;
 volatile FlagType errFlag=0; //error flag for any errors in the CAN bus
 tCANMsgObject TXmsg; //message object for the sent message
 tCANMsgObject RXmsg; //message object for the recieved message
 //message data of maximum size 8 bytes (64 bits) as per CAn protocol
-CanMsgType TXmsg_Data[8]; 
-CanMsgType RXmsg_Data[8];
+CanMsgType TXmsg_Data[8]; //character array for stroing the message to be set to the can bus
+CanMsgType RXmsg_Data[8]; //character array to store the message read from the CAN bus
 volatile FlagType rxFlag=0;
 
-// CAN interrupt handler
+/******************************************************************************/
+/* function name: CANIntHandler     												  */
+/* Inputs: void       												  */
+/* Outputs: set the flags for recieved messages							  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :								*/
+/* Description: check the status of the can message and determine if it's a valid message then raise
+								or if it's an error then raise and error flag and get error typr*/
+/******************************************************************************/
 void CANIntHandler(void) {
 	// read interrupt status
 	unsigned long status = CANIntStatus(CAN0_BASE, CAN_INT_STS_CAUSE); 
@@ -31,6 +43,15 @@ void CANIntHandler(void) {
 		errFlag = 0; 
 	}
 }
+
+/******************************************************************************/
+/* function name: Init_CAN0     												  */
+/* Inputs: void       												  */
+/* Outputs: void						  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :								*/
+/* Description: initialize the CAN0 module pins using the port driver APIs */
+/******************************************************************************/
 void Init_CAN0(void) {
 	CAN;
 	Port_ConfigType CAN_config;
@@ -41,6 +62,16 @@ void Init_CAN0(void) {
 		Port_Init(&CAN_config);
 	}
 }
+
+/******************************************************************************/
+/* function name: CAN_Init     												  */
+/* Inputs: void       												  */
+/* Outputs: void						  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :								*/
+/* Description: initialize the CAN0 module pins using the port driver APIs and enable interrupts.
+								furthermore, set up the message object with the appropriate configuration*/
+/******************************************************************************/
 void CAN_Init(void){
 	// Set up CAN0
 	Init_CAN0();
@@ -67,8 +98,15 @@ void CAN_Send(char word[],uint8_t Id){
 	//CANMessageSet(CAN0_BASE, TXOBJECT, &TXmsg, MSG_OBJ_TYPE_TX); 
 }
 
-//if the can flag is raised receive the message
-//decrypt the message and display it on pc over uart
+/******************************************************************************/
+/* function name: CAN_recieve     												  */
+/* Inputs: void       												  */
+/* Outputs: state of the 						  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :								*/
+/* Description: if a can message was recieved clear the flag and read the message
+								return an identifier indicating the state */
+/******************************************************************************/
 uint8_t CAN_recieve(void){
 			if(rxFlag && !errFlag){ 			
 				 // set pointer to rx buffer
@@ -92,8 +130,6 @@ uint8_t CAN_recieve(void){
 		return 0;
 }
 
-// handles the errors than can occur
-// outputs a message to the user with the error type
 void Error_Handling (void){
 		
 	if (errFlag){

@@ -1,3 +1,8 @@
+/******************************************************************************/
+/* Module Name: Hal       												  */
+/* Author: Youssef Ragaa              */
+/* Purpose: mediate between the Application functions and the hardware specific functions													  */
+/******************************************************************************/
 #ifndef HAL_H
 #define HAL_H
 

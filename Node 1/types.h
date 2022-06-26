@@ -8,12 +8,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-//App types
+/*App types */
 typedef bool FlagType;
 typedef double TimeType;
 typedef unsigned char CanMsgType;
 
-//DIO types
+/*DIO types */
 typedef unsigned int Dio_ChannelType;
 typedef unsigned int Dio_PortType;
 typedef struct Dio_ChannelGroupType{
@@ -27,7 +27,7 @@ typedef enum {
 }Dio_LevelType;
 typedef unsigned int Dio_PortLevelType;
 
-//PORT types
+/*PORT types */
 typedef uint8_t Port_PinType;
 typedef enum{
   PORT_PIN_IN,

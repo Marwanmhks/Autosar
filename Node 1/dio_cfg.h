@@ -19,7 +19,7 @@
 
 #define DioConf_DioChannel_F0 40
 #define Dio_F0 DioConf_DioChannel_F0
-#define DioConf_DioChannel_F4 44
+#define DioConf_DioChannel_F4 4
 #define Dio_F4 DioConf_DioChannel_F4
 #define SW1  Dio_F0//pin id correspoding to port f pin 0
 #define SW2 Dio_F4 //pin id correspoding to port f pin 4

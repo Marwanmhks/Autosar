@@ -1,9 +1,24 @@
+/******************************************************************************/
+/* Module Name: PORT       												  */
+/* Author: Omar Atef              */
+/* Purpose: Port driver for MCU ports													  */
+
+/******************************************************************************/
+
 #include "Port.h"
 
 const Dio_PortType Port_Ports[] = {GPIO_PORTA_BASE, GPIO_PORTB_BASE, GPIO_PORTC_BASE, GPIO_PORTD_BASE, GPIO_PORTE_BASE, GPIO_PORTF_BASE};
 const Port_PinType Port_Pins[] = {GPIO_PIN_0, GPIO_PIN_1, GPIO_PIN_2, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
 const Dio_PortType Port_Clocks [] = {SYSCTL_PERIPH_GPIOA,SYSCTL_PERIPH_GPIOB,SYSCTL_PERIPH_GPIOC,SYSCTL_PERIPH_GPIOD,SYSCTL_PERIPH_GPIOE,SYSCTL_PERIPH_GPIOF};
 
+/******************************************************************************/
+/* function name: Port_Init     												  */
+/* Inputs: reference to a port config object        												  */
+/* Outputs: void							  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :									*/
+/* Description: Set the Pin with the given ID in the config object to the specified direction, strength and type 									  */
+/******************************************************************************/
 void Port_Init(const Port_ConfigType* ConfigPtr){
 	Dio_PortType PortId;
 	Port_PinType PinId;
@@ -29,7 +44,14 @@ void Port_Init(const Port_ConfigType* ConfigPtr){
 	}
 }
 
-
+/******************************************************************************/
+/* function name: Port_SetPinMode     												  */
+/* Inputs: Pin ID and a Pin mode       												  */
+/* Outputs: void							  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :									*/
+/* Description: set a pin to one of the pre-defined Pin modes (CAN and DIO) */
+/******************************************************************************/
 void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode){
 	Dio_PortType PortId;
 	Port_PinType PinId;
@@ -88,6 +110,14 @@ void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode){
 	}
 }
 
+/******************************************************************************/
+/* function name: Port_SetPinDirection     												  */
+/* Inputs: Pin ID and a Pin direction       												  */
+/* Outputs: void							  */
+/* Re-entrancy: Re-entrant        												  */
+/* Synchronous :									*/
+/* Description: set a pin to the given Direction either input or output  */
+/******************************************************************************/
 void Port_SetPinDirection(Port_PinType Pin,Port_PinDirectionType Direction){
 	uint8_t PortNum = Pin/NumOfPins;
 	Dio_PortType PortId = Port_Ports[PortNum];

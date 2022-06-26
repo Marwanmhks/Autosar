@@ -8,7 +8,7 @@
 #include "inc/hw_can.h"
 
 
-#define NumOfPins	8
+#define NumOfPins	8 //Number of pins per port in the MCU
 
 
 #define CanConf_CanChannel_TX0 13	//Port B5
@@ -16,4 +16,4 @@
 #define CanConf_CanChannel_RX0 12	//Port B4
 #define Can_RX0 CanConf_CanChannel_RX0
 
-#define CAN const Port_PinType CanChannelConfigData[] = {Can_RX0, Can_TX0}
+#define CAN const Port_PinType CanChannelConfigData[] = {Can_RX0, Can_TX0} //array for the CAN pins to be initialized later

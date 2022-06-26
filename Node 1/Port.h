@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* Module Name: can.c        												  */
+/* Module Name: PORT       												  */
 /* Author: Osama Elhout and Mohamed Atef              */
 /* Purpose: CAN-BUS module													  */
 

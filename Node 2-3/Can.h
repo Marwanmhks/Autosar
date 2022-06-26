@@ -1,3 +1,9 @@
+/******************************************************************************/
+/* Module Name: CAN       												  */
+/* Author: Mahmoud Emad              */
+/* Purpose: CAN interface functions for reading and writing messsages 													  */
+
+/******************************************************************************/
 #ifndef CAN_H
 #define CAN_H
 
