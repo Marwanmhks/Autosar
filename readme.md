@@ -16,6 +16,7 @@ ECU 1 has the following functionality:
    * ECU 1 sends a message each 500 ms 
 
 And this functionality can be highlighted in the following flowchart
+
 ![flowchart](img/flowchart.png)
 
 ECU 2/3 has the following functionality:
@@ -27,12 +28,15 @@ ECU 2/3 has the following functionality:
       - Only switch states with periodicity of one second
 
 The following state diagram depicts the described state machine
+
 ![state diagram](img/state_diagram.png)
 
 Timing requirements for ECUs 2 and 3 can be seen below
+
 ![timing](img/timing.JPG)
 
-A demo video for the project can be seen [here](https://drive.google.com/drive/folders/1t7Q7SWvgzLtVmZySS7GUWDMJEL9s6S6S)
+A demo for the project can be seen below and full videos [here](https://drive.google.com/drive/folders/1t7Q7SWvgzLtVmZySS7GUWDMJEL9s6S6S)
+![](img/demo.gif)
 
 # Goal
 The aim of this project was to demonstrate compliance to AUTOSAR architecture through the execution of the tasks described above.
