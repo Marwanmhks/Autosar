@@ -4,7 +4,7 @@ CAN protocol while complying to the AUTOSAR standardized software architecture
 and level of abstraction.
 
 # Description
-The proect is comprised of three TivaC MCUs. Each one of them representing an ECU and all of them communicating via a
+The project is comprised of three TivaC MCUs. Each one of them representing an ECU and all of them communicating via a
 CAN bus. ECU 1 should send commands two the other and they respectively should perform certain tasks based on these commands.
 The tasks are controlled by a state machine which represents the changing of a state based on the change of the LED color.
 The 
@@ -40,8 +40,8 @@ A demo for the project can be seen below and full videos [here](https://drive.go
 
 # Goal
 The aim of this project was to demonstrate compliance to AUTOSAR architecture through the execution of the tasks described above.
-The DIO and PORT drivers used in the project were written while adhering as closely as pssoible to AUTOSAR SWS.
-Moreover, the file architecture used was implemented with abstraction and layered architecture in mind. where the hardware specific components are
+The DIO and PORT drivers used in the project were written while adhering as closely as possible to AUTOSAR SWS.
+Moreover, the file architecture used was implemented with abstraction and layered architecture in mind, where the hardware specific components are
 arranged together below the application and service layers (mainly CAN in this project) and this also can be seen below
 ![inclusion tree](img/inclusion_tree.png)
 
